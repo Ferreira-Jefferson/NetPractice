@@ -31,7 +31,7 @@ você está pronto para o Subnetting.
 
 unsigned int calcular_endereco_rede(unsigned int ip, unsigned int mask)
 {
-	return ip & mask;
+	return (ip & mask);
 }
 
 int main(void)
