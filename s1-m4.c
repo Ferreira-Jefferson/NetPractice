@@ -30,7 +30,7 @@ faixa perfeitamente, o domínio sobre o Subnetting está consolidado.
 #include <stdlib.h>
 #include <arpa/inet.h>
 
-char *define_ip(int octetos)
+char *format_ip(int octetos)
 {
 	struct in_addr addr;
 	addr.s_addr = htonl(octetos);
@@ -88,13 +88,13 @@ int main()
 	unsigned int last_host = get_last_host(broadcast);
 
 	printf("hosts válidos: %d\n", calcular_hosts_validos(cidr));
-	printf("ip: %s\n", define_ip(ip));
-	printf("mask: %s\n", define_ip(mask));
-	printf("wildcard: %s\n", define_ip(wildcard));
-	printf("network: %s\n", define_ip(network));
-	printf("broadcast: %s\n", define_ip(broadcast));
-	printf("1º host: %s\n", define_ip(first_host));
-	printf("last host: %s\n", define_ip(last_host));
+	printf("ip: %s\n", format_ip(ip));
+	printf("mask: %s\n", format_ip(mask));
+	printf("wildcard: %s\n", format_ip(wildcard));
+	printf("network: %s\n", format_ip(network));
+	printf("broadcast: %s\n", format_ip(broadcast));
+	printf("1º host: %s\n", format_ip(first_host));
+	printf("last host: %s\n", format_ip(last_host));
 
 	return (0);
 }

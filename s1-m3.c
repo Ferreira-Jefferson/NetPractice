@@ -32,7 +32,7 @@ consegue calcular o Endereço de Rede ($10.1.0.0$) e o Endereço de Broadcast
 #include <stdlib.h>
 #include <arpa/inet.h> 
 
-char *print_ip(unsigned int octetos)
+char *format_ip(unsigned int octetos)
 {
 	struct in_addr addr;
     addr.s_addr = htonl(octetos);
@@ -63,14 +63,14 @@ int main()
 {
 	unsigned int ip = (192 << 24) | (168 << 16) | (1 << 8) | 10;
 	unsigned int cidr = 24;
-	printf("ip: %s\n", print_ip(ip));
+	printf("ip: %s\n", format_ip(ip));
 
 	unsigned int mask = prefixo_para_mascara(cidr);
-	printf("Mask: %s\n", print_ip(mask));
+	printf("Mask: %s\n", format_ip(mask));
 
 	unsigned int broadcast = obter_broadcast(ip, mask);
-	printf("broadcast: %s\n", print_ip(broadcast));
+	printf("broadcast: %s\n", format_ip(broadcast));
 
 	unsigned int wildcard = obter_wildcard_mask(mask);
-	printf("wildcard: %s\n", print_ip(wildcard));
+	printf("wildcard: %s\n", format_ip(wildcard));
 }
